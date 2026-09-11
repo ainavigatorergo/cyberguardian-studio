@@ -1,65 +1,35 @@
-# 🔥 CyberGuardianSec Studio
+---
+title: CyberGuardian Studio
+emoji: 🔥
+colorFrom: purple
+colorTo: blue
+sdk: docker
+pinned: false
+---
 
-**AI-студия для автоматического создания контента по кибербезопасности.**
+# CyberGuardian Studio — AI Video Studio
 
-Проект представляет собой мультиагентный конвейер, который создаёт полноценные видео (от идеи до готового ролика) с озвучкой, видеорядом, субтитрами, SEO-метаданными и адаптацией под разные платформы.
+Автоматизированная студия для создания видео по двум темам:
+- 🔐 Кибербезопасность (CyberGuardianSec)
+- 🤖 Нейросети для бизнеса (AI Navigator)
 
-## 🚀 Возможности
+## Что умеет
 
-- **Генерация идей** — уникальные темы без повторов, с учётом трендов.
-- **Анализ трендов и конкурентов** — свежие новости, уязвимости, форматы.
-- **Написание сценариев** — живые, вовлекающие тексты на 10–12 минут.
-- **Озвучка** — чистый синтез речи (Edge TTS) с адаптацией под платформу.
-- **Видеоряд** — автоматический подбор и монтаж роликов с Pexels.
-- **Субтитры** — генерация SRT-файлов.
-- **Обложки** — концепции для YouTube-превью.
-- **SEO-метаданные** — названия, описания, теги.
-- **Адаптация под платформы** — YouTube, Shorts, TikTok, VK.
-- **Посты для VK** — готовые тексты для сообщества.
-- **Ответы на комментарии** — персонализированные ответы зрителям.
-- **Самообучение** — анализ метрик и предложения по улучшению.
+- Генерирует сценарии через Gemini (provod.ai)
+- Создаёт озвучку через Edge TTS
+- Генерирует ключевые сцены через Agnes AI (до 500 сек/день)
+- Собирает фоновый видеоряд из Pexels и Pixabay
+- Создаёт видео в форматах 16:9 (YouTube) и 9:16 (Shorts/TikTok)
+- Генерирует SEO-метаданные
 
-## 🧠 Архитектура
+## Переменные окружения
 
-Проект состоит из **21 агента**, каждый отвечает за свою задачу:
-- `orchestrator` — креативный директор.
-- `trend_analyst` — аналитик трендов.
-- `audience_analyst` — аналитик аудитории.
-- `idea_generator` — генератор идей.
-- `research_agent` — исследователь угроз.
-- `scriptwriter` — сценарист.
-- `rules_checker` — модератор.
-- `speech_editor` — редактор речи.
-- `sound_engineer` — звукорежиссёр.
-- `video_editor` — видеооператор.
-- `subtitle_generator` — субтитрист.
-- `thumbnail_generator` — дизайнер обложек.
-- `seo_specialist` — SEO-оптимизатор.
-- `platform_adapter` — адаптер контента.
-- `vk_poster` — SMM-менеджер VK.
-- `comment_responder` — комментатор.
-- `ab_test_agent` — A/B-тестировщик.
-- `sentiment_analyzer` — анализатор тональности.
-- `voice_changer` — мастер голоса.
-- `intro_outro_generator` — создатель интро/аутро.
-- `self_improvement_agent` — агент самообучения.
+Добавь в **Settings → Variables and secrets**:
 
-## 🛠️ Технологии
-
-- Python 3.11
-- Streamlit (интерфейс)
-- MoviePy (монтаж видео)
-- Edge TTS (синтез речи)
-- Requests (работа с API)
-- Pexels API (видеоряд)
-- Provod.ai (LLM для генерации текстов)
-
-## 📦 Установка и запуск
-
-### Локально
-
-```bash
-git clone https://github.com/твой-аккаунт/cyberguardian-studio.git
-cd cyberguardian-studio
-pip install -r requirements.txt
-streamlit run app.py
+- `OPENAI_API_KEY` — ключ provod.ai
+- `OPENAI_BASE_URL` — https://api.provod.ai/v1
+- `GEMINI_MODEL` — gemini-3.5-flash
+- `PEXELS_API_KEY` — ключ Pexels
+- `PIXABAY_API_KEY` — ключ Pixabay
+- `AGNES_API_KEY` — ключ Agnes AI
+- `OUTPUT_BASE_DIR` — /tmp/project_output
